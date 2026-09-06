@@ -1,3 +1,19 @@
-# What makes a delicious recipes highly rated?
-**Randall Bassig**
-I will analyze different recipe's various characteristics and how they may associate with consumer's ratings. 
+# What Makes a Delicious Recipe Highly Rated?
+
+Randall Bassig
+
+## Introduction
+
+## Data Cleaning and Exploratory Data Analysis
+
+## Assessment of Missingness
+
+## Hypothesis Testing
+
+## Framing a Prediction Problem
+
+## Baseline Model
+
+## Final Model
+
+## Fairness Analysis
