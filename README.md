@@ -88,23 +88,23 @@ I grouped recipes into calorie ranges and calculated the average rating and numb
 
 ### Missingness of Average Rating
 
-The `average_rating` column is missing for approximately **3.11%** of the recipes. I investigated whether the missingness of `average_rating` may be related to other characteristics of a recipe.
+The `average_rating` variable has missing values in approximately **3.11%** of recipes. I explored if there may be some relationship between the missingness of `average_rating` and other attributes of a recipe.
 
-The missingness of `average_rating` could potentially be **MNAR** because whether a recipe receives ratings may depend on information that is missing inside of the data set. Recipes that are less popular, less prominent on the website, or with less views may be less likely to receive ratings. Information that is no present in the dataset such as the number of recipe page views or how often a recipe appeared on a users feed could help explain this missingness. If this information was present on why a rating was missing, then the missingness could potentially be considered MAR instead.
+The missingness of `average_rating` variable could be potentially **MNAR** since whether or not a recipe gets any ratings can depend on some information which is not present in the dataset. Less popular or less visible on the website recipes, or recipes with lower number of views are less likely to get any ratings. The number of recipe views and the number of times this recipe appeared in the users' feed would be helpful in understanding this pattern of missingness.
 
 ### Missingness and Preparation Time
 
-I performed a permutation test to determine whether the missingness of `average_rating` depends on recipe preparation time. For this analysis, I restricted preparation times to more than 0 minutes and no more than 250 minutes so that extreme preparation-time outliers would not dominate the comparison.
+A permutation test was conducted to find out whether missingness in `average_rating` is associated with recipe preparation time. In this analysis, recipe preparation times were limited to above 0 and up to 250 minutes to avoid having extreme values affecting the comparison.
 
-**Null Hypothesis:** Missingness of `average_rating` is independent of preparation time.
+**Null Hypothesis:** Missingness of `average_rating` is unrelated to preparation time.
 
-**Alternative Hypothesis:** Missingness of `average_rating` depends on preparation time.
+**Alternative Hypothesis:** Missingness of `average_rating` is related to preparation time.
 
-**Test Statistic:** Difference in mean preparation time between recipes with missing average ratings and recipes with non-missing average ratings.
+**Test Statistic:** Difference in mean preparation time of recipes with missing average rating versus non-missing average rating.
 
-**Significance Level:** 0.05
+**Level of Significance:** 0.05
 
-The observed difference in mean preparation time was approximately **8.33 minutes**.
+The difference in mean preparation time was around **8.33 minutes**.
 
 <iframe
   src="assets/missingness-preparation-time.html"
@@ -113,17 +113,17 @@ The observed difference in mean preparation time was approximately **8.33 minute
   frameborder="0">
 </iframe>
 
-The permutation test produced a p-value of **less than 0.001**. Since this is below the significance level of 0.05, I reject the null hypothesis. This provides strong evidence that whether a recipe has a missing `average_rating` is associated with its preparation time.
+The permutation test yielded a p-value of **less than 0.001**. Since the value is less than the alpha level of 0.05, the null hypothesis will be rejected, meaning that there is enough evidence to support the claim that missing average rating and cooking time are correlated.
 
 ### Missingness and Protein Content
 
-I also performed a permutation test to determine whether the missingness of `average_rating` depends on the protein content of a recipe.
+Furthermore, I conducted a permutation test to see if the missingness of average rating depends on the protein in the recipe.
 
 **Null Hypothesis:** The missingness of `average_rating` is independent of protein content.
 
 **Alternative Hypothesis:** The missingness of `average_rating` depends on protein content.
 
-The observed difference in mean protein content was approximately **1.287**, and the permutation test resulted in a p-value of **0.185**. Since this is greater than the significance level of 0.05, I fail to reject the null hypothesis. There is not sufficient evidence to conclude that the missingness of `average_rating` depends on the protein content of a recipe.
+The difference in averages of the protein in the food was approximately **1.287**, and the permutation test I ran resulted in a p-value of **0.185**. Since this is greater than the significance level of 0.05, I ended up having to fail the null hypothesis. So there is not sufficient evidence to conclude that the missingness of `average_rating` depends on the protein content of a recipe.
 
 ## Hypothesis Testing
 
@@ -151,11 +151,11 @@ Since the p-value is below the significance level of 0.05, I reject the null hyp
 
 ## Framing a Prediction Problem
 
-I will build a **regression model** to predict the `average_rating` of a recipe. I chose `average_rating` as my response variable because it directly connects to my original question of which recipe characteristics are associated with higher ratings.
+A **regression model** will be developed to predict the value of `average_rating`. The response variable was selected based on the relationship of the original question to find recipe features which are related to higher average ratings.
 
-I will evaluate my model using **Root Mean Squared Error (RMSE)**. RMSE measures the size of the errors between the predicted and actual ratings while giving greater weight to larger prediction errors. A lower RMSE indicates better predictive performance. I chose RMSE instead of a metric such as MAE because RMSE penalizes larger prediction errors more heavily, which is useful for identifying predictions that are especially far from a recipe's actual rating.
+For the assessment of the performance of my model, I will use the measure of **Root Mean Squared Error (RMSE)**. It gives a measure of the magnitude of the errors and the error values receive more weight when their magnitude is larger. A lower RMSE value means better predictive performance. Instead of MAE measure, I decided to use RMSE because it puts more emphasis on large prediction errors which is helpful to find such predictions.
 
-The features used to make predictions will only include information that would be known before a user rates a recipe. These include characteristics such as preparation time, number of steps, number of ingredients, and nutritional information. This prevents the model from using information that would only become available after the rating is given.
+For predictions, the features will be limited by the variables that would have been known before the user rated the recipe. It includes features like preparation time, number of steps, number of ingredients, nutrition.
 
 ## Baseline Model
 
@@ -241,4 +241,4 @@ I performed a permutation test by randomly shuffling the preparation-time group 
   frameborder="0">
 </iframe>
 
-Since the p-value of 0.005 is below the significance level of 0.05, I reject the null hypothesis. The results provide evidence that the final model's prediction accuracy differs between shorter and longer preparation-time recipes. In this test set, the model had a higher RMSE for longer recipes, meaning its predictions were less accurate for that group.
+Since the p-value is 0.005 which is lower than the level of significance 0.05, I reject the null hypothesis. The findings indicate that there is a difference in the prediction accuracy of the final model between recipes with short preparation time and those with long preparation time. From this dataset, the prediction accuracy was lower for the longer recipes.
