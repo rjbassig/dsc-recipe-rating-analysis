@@ -129,18 +129,17 @@ The difference in averages of the protein in the food was approximately **1.287*
 
 ### Protein Content and Average Rating
 
-During my exploratory analysis, I noticed that recipes with higher protein content tended to have a slightly lower average rating than recipes with lower protein content. I conducted a permutation test to determine whether this observed difference could reasonably be explained by random chance.
+During my EDA process, I saw that recipes with higher protein content tended to have a lower average rating than recipes with lower protein content that had higher protein content. I used a permutation test to determine whether this observed difference could be explained by random chance or if there was more to this.
 
-**Null Hypothesis:** Recipes with lower protein content and recipes with higher protein content have the same average rating. Any observed difference between the groups is due to random chance.
+**Null Hypothesis:** Recipes with lower protein content and recipes with higher protein content have around the same average rating. Any observed difference between the groups is completely random .
 
-**Alternative Hypothesis:** Recipes with lower protein content have a higher average rating than recipes with higher protein content.
+**Alternative Hypothesis:** Recipes that have a lower protein content have a higher average rating than compared to the recipes with higher protein content.
 
-**Test Statistic:** Average rating of lower-protein recipes minus the average rating of higher-protein recipes.
+**Test Statistic:** Using the average rating of lower-protein recipes subtracted by the average rating of higher-protein recipes.
 
 **Significance Level:** 0.05
 
-The reason for choosing the difference in means as my test statistic was that `average_rating` is a numerical variable and I compared average ratings of two groups. My significance level was 0.05 as the criterion to determine if there is enough evidence against the null hypothesis.
-I divided the recipes into lower- and higher-protein groups using a protein value of 18 as the cutoff. Recipes with protein values less than or equal to 18 were placed in the lower-protein group, while recipes with values greater than 18 were placed in the higher-protein group.
+The reason for choosing the difference in means as my test statistic was that `average_rating` is a numerical variable and I decided to compare average ratings of two groups. My significance level that I used was 0.05 as the criterion to determine if there is enough evidence against the null hypothesis.I divided the recipes into lower- and higher-protein groups using a protein value of 18 as the cutoff. Recipes with protein values less than or equal to 18 were placed in the lower-protein group, while recipes with values greater than 18 were placed in the higher-protein group.
 
 The mean rating for the high protein group was roughly **4.6125**, whereas the mean rating for the low protein group was roughly **4.6379**. This gave us an observed difference of roughly **0.0254**.
 
