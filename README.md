@@ -1,6 +1,6 @@
 # What Makes a Delicious Recipe Highly Rated?
 
-Randall Bassig
+By Randall Bassig
 
 ## Introduction
 
@@ -25,13 +25,13 @@ In step 2, I went ahead and made a quick analysis of the dataset and found it co
 
 ### Data Cleaning
 
-To prepare the dataset for analysis, I cleaned and transformed several columns. I first calculated the average rating for each recipe using the user interaction data and merged those values into the recipes dataset. I then parsed the `nutrition` column, which was originally stored as a string representation of a list, into separate numerical columns for calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates.
+For this part, I had to clean and transform several columns from my data set. I first calculated the average rating for each recipe from the user interaction data. With this I merged that into the main dataset for recipes. After that I broke down the `nutrition` column which was used as a string into numerical columns for the following: calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates.
 
-I also examined preparation time and other numerical variables for extreme values before performing exploratory analysis. For preparation time visualizations, I focused on recipes that took more than 0 minutes and no more than 250 minutes so that extreme outliers would not dominate the plots.
+I also examined preparation time along with other numerical variables for extreme values before doing the EDA. For preparation time visualizations, I focused on recipes that took more than 0 minutes and no more than 250 minutes so that extreme outliers would not dominate the plots.
 
 ### Cleaned DataFrame
 
-Below are the first five rows of the cleaned dataset after calculating and adding the average rating for each recipe.
+Here are the first five rows of the cleaned dataset:
 
 | name | minutes | n_steps | n_ingredients | average_rating |
 |:---|---:|---:|---:|---:|
@@ -48,7 +48,7 @@ Below are the first five rows of the cleaned dataset after calculating and addin
   frameborder="0">
 </iframe>
 
-The preparation-time distribution is right-skewed, with most recipes taking substantially less time than the extreme recipes in the dataset. Most recipes are concentrated in the lower preparation-time range.
+The preparation-time distribution of this data set is right-skewed which means most recipes take less time. Most recipes are on the lower preparation-time side.
 
 ### Distribution of Ingredients
 
@@ -59,7 +59,7 @@ The preparation-time distribution is right-skewed, with most recipes taking subs
   frameborder="0">
 </iframe>
 
-The number of ingredients is concentrated around roughly 5 to 12 ingredients, with the highest frequency around 8 to 10 ingredients. The distribution is right-skewed, with relatively few recipes containing more than about 20 ingredients.
+The number of ingredients is concentrated around roughly 5 to 12 ingredients and the highest frequency around 8 to 10 ingredients. The distribution is right-skewed with the least amount of recipes being above 20. 
 
 ### Number of Ingredients and Average Rating
 
