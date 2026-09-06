@@ -139,11 +139,10 @@ During my exploratory analysis, I noticed that recipes with higher protein conte
 
 **Significance Level:** 0.05
 
-I chose the difference in mean ratings as my test statistic because `average_rating` is a quantitative variable and I am comparing the average ratings of two groups. I used a significance level of 0.05 as the threshold for determining whether the observed difference provides sufficient evidence against the null hypothesis.
-
+The reason for choosing the difference in means as my test statistic was that `average_rating` is a numerical variable and I compared average ratings of two groups. My significance level was 0.05 as the criterion to determine if there is enough evidence against the null hypothesis.
 I divided the recipes into lower- and higher-protein groups using a protein value of 18 as the cutoff. Recipes with protein values less than or equal to 18 were placed in the lower-protein group, while recipes with values greater than 18 were placed in the higher-protein group.
 
-The average rating of the higher-protein group was approximately **4.6125**, while the average rating of the lower-protein group was approximately **4.6379**. This resulted in an observed difference of approximately **0.0254**.
+The mean rating for the high protein group was roughly **4.6125**, whereas the mean rating for the low protein group was roughly **4.6379**. This gave us an observed difference of roughly **0.0254**.
 
 I performed **10,000 permutations** by randomly shuffling the protein-group labels and recalculating the difference in average ratings. None of the 10,000 simulated differences were as large as the observed difference, resulting in an estimated p-value of **less than 0.0001**.
 
