@@ -172,7 +172,7 @@ I evaluated the model using RMSE on both the training data and the unseen testin
 | Training | 0.6419 |
 | Testing | 0.6360 |
 
-The training RMSE was approximately **0.6419**, while the testing RMSE was approximately **0.6360**. Since these values are very close, the model performs similarly on the training and unseen testing data and does not show clear signs of substantial overfitting.
+The training RMSE is **approximately 0.6419**, and the testing RMSE is **approximately 0.6360**. As the difference between them is very small, the model exhibits similar performance on both training and testing data sets and no significant indication of overfitting can be observed.
 
 However, I do not consider the baseline model particularly strong. An RMSE of approximately **0.64** means that the model's predicted ratings can still differ noticeably from the actual ratings. This leaves room to improve the model by engineering additional features and using a model that can capture more complex relationships in the data.
 
